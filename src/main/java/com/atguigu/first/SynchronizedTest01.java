@@ -15,12 +15,16 @@ public class SynchronizedTest01 {
     public static void main(String[] args) {
 
 
-        new Thread(() -> {
+        Thread thread01 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "::" + Thread.currentThread().isDaemon());
             while (true) {
 //                System.out.println("");
             }
-        }, "Thread01").start();
+        }, "Thread01");
+
+        thread01.setDaemon(true);
+
+        thread01.start();
 
         System.out.println(Thread.currentThread().getName() + ":: is over");
 
