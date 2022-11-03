@@ -1,5 +1,7 @@
 package com.atguigu.first;
 
+import org.junit.Test;
+
 import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
 
 /**
@@ -11,6 +13,17 @@ import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
  * Author ==> _02雪乃赤瞳楪祈校条祭_艾米丽可锦木千束木更七草荠_制作委员会_start
  */
 public class SynchronizedTest01 {
+
+
+
+    @Test
+    public void testProperties(){
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.getProperties().entrySet().forEach(System.out::println);
+
+    }
 
     public static void main(String[] args) {
 
