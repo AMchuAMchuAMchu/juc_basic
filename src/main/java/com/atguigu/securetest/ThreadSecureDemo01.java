@@ -1,5 +1,6 @@
 package com.atguigu.securetest;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -14,7 +15,11 @@ public class ThreadSecureDemo01 {
 
     private static Integer tickets = 100;
 
-    public synchronized void saleTicket() {
+    private static Object o = new Object();
+
+    //  1.0 原线程安全例子  public void saleTicket() {
+//  2.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
+    public void saleTicket() {
         for (int i = 1; i <= 100; i++) {
             if (tickets > 0) {
                 try {
@@ -22,7 +27,9 @@ public class ThreadSecureDemo01 {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + ":: 在销售第" + tickets-- + "张票");
+                synchronized (o) {
+                    System.out.println(Thread.currentThread().getName() + ":: 在销售第" + tickets-- + "张票");
+                }
             } else {
                 return;
             }
