@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
  * Author ==> _02雪乃赤瞳楪祈校条祭_艾米丽可锦木千束木更七草荠_制作委员会_start
  */
 public class ThreadSecureDemo01 {
-
-    private static Integer tickets = 100;
-
+    //票数
+    private static volatile Integer tickets = 100;
+    //代码块的锁
     private static Object o = new Object();
 
     //  1.0 原线程安全例子  public void saleTicket() {
