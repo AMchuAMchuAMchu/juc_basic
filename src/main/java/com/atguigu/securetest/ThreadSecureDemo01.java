@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.StampedLock;
 
 /**
  * Description ==> TODO
@@ -24,6 +25,8 @@ public class ThreadSecureDemo01 {
     private static ReentrantLock reentrantLock = new ReentrantLock();
 
     private static ReentrantReadWriteLock rw = new ReentrantReadWriteLock();
+
+    private static StampedLock sl = new StampedLock();
 
     //   原线程安全例子  public void saleTicket() {
 //  1.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
