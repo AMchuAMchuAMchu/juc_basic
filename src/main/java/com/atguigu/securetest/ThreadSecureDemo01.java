@@ -17,11 +17,11 @@ public class ThreadSecureDemo01 {
     public void saleTicket() {
         for (int i = 1; i <= 100; i++) {
             if (tickets > 0) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(20);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    TimeUnit.MILLISECONDS.sleep(20);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
                 System.out.println(Thread.currentThread().getName() + ":: 在销售第" + tickets-- + "张票");
             } else {
                 return;
