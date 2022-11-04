@@ -14,8 +14,6 @@ import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
  */
 public class SynchronizedTest01 {
 
-
-
     @Test
     public void testProperties(){
         System.out.println();
