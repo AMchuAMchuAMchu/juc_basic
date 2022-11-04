@@ -20,18 +20,18 @@ public class ThreadSecureDemo01 {
     //  1.0 原线程安全例子  public void saleTicket() {
 //  2.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
     public void saleTicket() {
-        for (int i = 1; i <= 100; i++) {
-            if (tickets > 0) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                synchronized (o) {
+        synchronized (o) {
+            for (int i = 1; i <= 100; i++) {
+                if (tickets > 0) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println(Thread.currentThread().getName() + ":: 在销售第" + tickets-- + "张票");
+                } else {
+                    return;
                 }
-            } else {
-                return;
             }
         }
     }
