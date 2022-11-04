@@ -14,7 +14,7 @@ public class ThreadSecureDemo01 {
 
     private static Integer tickets = 100;
 
-    public void saleTicket() {
+    public synchronized void saleTicket() {
         for (int i = 1; i <= 100; i++) {
             if (tickets > 0) {
                 try {
@@ -27,8 +27,6 @@ public class ThreadSecureDemo01 {
                 return;
             }
         }
-
-
     }
 
 
@@ -36,7 +34,7 @@ public class ThreadSecureDemo01 {
 
         ThreadSecureDemo01 t1 = new ThreadSecureDemo01();
         for (int i = 1; i <= 3; i++) {
-            new Thread(t1::saleTicket,"艾斯华伦斯坦"+String.valueOf(i)).start();
+            new Thread(t1::saleTicket, "艾斯华伦斯坦" + String.valueOf(i)).start();
         }
 
 //        t1.saleTicket();
