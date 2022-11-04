@@ -25,9 +25,9 @@ public class ImplementThreadTest01 {
 
         T3 t3 = new T3();
         FutureTask<String> futureTask = new FutureTask<>(t3);
-        String s = futureTask.get();
         Thread thread = new Thread(futureTask);
         thread.start();
+        String s = futureTask.get();
         System.out.println(" >> "+s);
 
 
