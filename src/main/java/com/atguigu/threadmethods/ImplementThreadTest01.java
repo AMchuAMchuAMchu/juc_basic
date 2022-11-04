@@ -21,8 +21,8 @@ public class ImplementThreadTest01 {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-//        T11 t11 = new T11();
-//        t11.start();
+//        T1 t1 = new T1();
+//        t1.start();
 
 //        T2 t2 = new T2();
 //        Thread thread = new Thread(t2);
@@ -73,7 +73,7 @@ class T2 implements Runnable {
     }
 }
 
-class T11 extends Thread {
+class T1 extends Thread {
     @Override
     public void run() {
         System.out.println("T1...");
