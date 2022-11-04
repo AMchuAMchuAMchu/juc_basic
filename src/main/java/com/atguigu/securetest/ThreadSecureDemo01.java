@@ -34,6 +34,7 @@ public class ThreadSecureDemo01 {
 //      2.0 代码块加锁解决  synchronized (o) {
 //       3.0 可重入锁解决 reentrantLock.lock();
 //       4.0 可重入读写锁 rw.writeLock().lock();
+        long l = sl.writeLock();
         try {
             for (int i = 1; i <= 100; i++) {
                 if (tickets > 0) {
@@ -50,6 +51,7 @@ public class ThreadSecureDemo01 {
         } finally {
 //     3.0       reentrantLock.unlock();
 //     4.0       rw.writeLock().unlock();
+            sl.unlock(l);
         }
 
 //  2.0      }
