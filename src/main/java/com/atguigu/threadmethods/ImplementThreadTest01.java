@@ -38,12 +38,18 @@ public class ImplementThreadTest01 {
 
         ExecutorService es = Executors.newFixedThreadPool(3);
         ImplementThreadTest01 itt = new ImplementThreadTest01();
-        for (int i = 0; i < 3; i++) {
             es.submit(() -> {
                 System.out.println(Thread.currentThread().getName() + "::");
                 itt.sayHello();
             });
-        }
+            es.submit(() -> {
+                System.out.println(Thread.currentThread().getName() + "::");
+                itt.sayHello();
+            });
+            es.submit(() -> {
+                System.out.println(Thread.currentThread().getName() + "::");
+                itt.sayHello();
+            });
 
         es.shutdown();
 
