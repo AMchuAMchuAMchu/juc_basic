@@ -28,8 +28,11 @@ public class ThreadSecureDemo01 {
     public static void main(String[] args) {
 
         ThreadSecureDemo01 t1 = new ThreadSecureDemo01();
+        for (int i = 1; i <= 3; i++) {
+            new Thread(t1::saleTicket,String.valueOf(i)).start();
+        }
 
-        t1.saleTicket();
+//        t1.saleTicket();
 
     }
 
