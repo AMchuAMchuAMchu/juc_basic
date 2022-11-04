@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Description ==> TODO
@@ -22,11 +23,14 @@ public class ThreadSecureDemo01 {
 
     private static ReentrantLock reentrantLock = new ReentrantLock();
 
-    //  1.0 原线程安全例子  public void saleTicket() {
-//  2.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
+    private static ReentrantReadWriteLock rw = new ReentrantReadWriteLock();
+
+    //   原线程安全例子  public void saleTicket() {
+//  1.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
     public void saleTicket() {
-//      3.0 代码块加锁解决  synchronized (o) {
-        reentrantLock.lock();
+//      2.0 代码块加锁解决  synchronized (o) {
+//       3.0 可重入锁解决 reentrantLock.lock();
+//        rw.writeLock().lock();
         try {
             for (int i = 1; i <= 100; i++) {
                 if (tickets > 0) {
@@ -41,9 +45,11 @@ public class ThreadSecureDemo01 {
                 }
             }
         } finally {
-            reentrantLock.unlock();
+//     3.0       reentrantLock.unlock();
+//            rw.writeLock().unlock();
         }
-//        }
+
+//  2.0      }
     }
 
 
