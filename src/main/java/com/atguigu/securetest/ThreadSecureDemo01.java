@@ -13,9 +13,9 @@ public class ThreadSecureDemo01 {
     private static Integer tickets = 100;
 
     public void saleTicket() {
-        for (int i = 1; i <= tickets; i++) {
+        for (int i = 1; i <= 100; i++) {
             if (tickets > 0) {
-                System.out.println(Thread.currentThread().getName() + ":: 在销售第" + tickets + "张票");
+                System.out.println(Thread.currentThread().getName() + ":: 在销售第" + tickets-- + "张票");
             } else {
                 return;
             }
