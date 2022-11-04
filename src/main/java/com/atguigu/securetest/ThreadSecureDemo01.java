@@ -30,7 +30,7 @@ public class ThreadSecureDemo01 {
     public void saleTicket() {
 //      2.0 代码块加锁解决  synchronized (o) {
 //       3.0 可重入锁解决 reentrantLock.lock();
-        rw.writeLock().lock();
+//       4.0 可重入读写锁 rw.writeLock().lock();
         try {
             for (int i = 1; i <= 100; i++) {
                 if (tickets > 0) {
@@ -46,7 +46,7 @@ public class ThreadSecureDemo01 {
             }
         } finally {
 //     3.0       reentrantLock.unlock();
-            rw.writeLock().unlock();
+//     4.0       rw.writeLock().unlock();
         }
 
 //  2.0      }
