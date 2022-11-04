@@ -2,6 +2,8 @@ package com.atguigu.securetest;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Description ==> TODO
@@ -18,10 +20,14 @@ public class ThreadSecureDemo01 {
     //代码块的锁
     private static Object o = new Object();
 
+    private static ReentrantLock reentrantLock = new ReentrantLock();
+
     //  1.0 原线程安全例子  public void saleTicket() {
 //  2.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
     public void saleTicket() {
 //      3.0 代码块加锁解决  synchronized (o) {
+        reentrantLock.lock();
+        try {
             for (int i = 1; i <= 100; i++) {
                 if (tickets > 0) {
                     try {
@@ -34,6 +40,9 @@ public class ThreadSecureDemo01 {
                     return;
                 }
             }
+        } finally {
+            reentrantLock.unlock();
+        }
 //        }
     }
 
