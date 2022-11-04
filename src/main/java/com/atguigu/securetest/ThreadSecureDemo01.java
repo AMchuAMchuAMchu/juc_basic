@@ -20,7 +20,7 @@ public class ThreadSecureDemo01 {
     //  1.0 原线程安全例子  public void saleTicket() {
 //  2.0 方法加锁解决线程安全问题  public synchronized void saleTicket() {
     public void saleTicket() {
-        synchronized (o) {
+//      3.0 代码块加锁解决  synchronized (o) {
             for (int i = 1; i <= 100; i++) {
                 if (tickets > 0) {
                     try {
@@ -33,7 +33,7 @@ public class ThreadSecureDemo01 {
                     return;
                 }
             }
-        }
+//        }
     }
 
 
