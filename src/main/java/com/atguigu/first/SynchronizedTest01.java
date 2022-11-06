@@ -2,7 +2,6 @@ package com.atguigu.first;
 
 import org.junit.Test;
 
-import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
 
 /**
  * Description ==> TODO
@@ -20,7 +19,6 @@ public class SynchronizedTest01 {
         System.out.println();
         System.out.println();
         System.getProperties().entrySet().forEach(System.out::println);
-
     }
 
     public static void main(String[] args) {
