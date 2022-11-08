@@ -53,6 +53,11 @@ public class ImplementThreadTest01 {
 
         es.shutdown();
 
+
+//        可以简单成这样的说....O(∩_∩)O哈哈~
+//        new Thread(itt::sayHello).start();
+
+
     }
 }
 
